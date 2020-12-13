@@ -1,17 +1,24 @@
+
+/* overall body */
 body {
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
     line-height: 1;
   }
   
-  textarea{
+  /* input calendar bars */
+  .textarea{
     background: transparent;
-    border: none;
+    border: blue;
+    border-style: solid;
     resize: none;
     color: #000000;
     border-left: 1px solid black;
     padding: 10px;
+    width: 80%;
   }
+
+  /* jumbotron formatting at top. */
   
   .jumbotron {
     text-align: center;
@@ -21,52 +28,85 @@ body {
     border-bottom: 10px solid black;
   }
   
+  /*  */
+
   .description{
     white-space: pre-wrap;
   }
   
+  /* table form */
   .time-block{
-    text-align: center;
+    text-align: left;
     border-radius: 15px;
+    margin-left: 30%;
+  }
+
+  .container {
+
+    text-align: center;
   }
   
+  /* rows for the calendar table */
   .row {
     white-space: pre-wrap;
     height: 80px;
     border-top: 1px solid white;;
+    text-align: center;
+    width: 250%;
   }
   
+  /* time section on calendar */
   .hour {
     background-color: #ffffff;
     color: #000000;
     border-top: 1px dashed #000000;
   }
+
+
+  /* styling what happens when event is in the past */
   
   .past {
     background-color: #d3d3d3;
     color: white;
   }
   
+  /* styling what happens when event is in the present */
   .present {
     background-color: #ff6961;
     color: white;
   }
   
+  /* styling what happens when an event is in the future*/
   .future {
     background-color: #77dd77;
     color: white;
   }
   
+  /* styling button for saving event*/
   .saveBtn {
     border-left: 1px solid black;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
     background-color: #06AED5;
     color: white;
+    width: 10%;
+    height: auto;
   }
   
+  /* style for what happens when you hover over the button*/
   .saveBtn i:hover {
     font-size: 20px;
     transition: all .3s ease-in-out;
   }
+
+  /* my addition for text area - could delete 
+
+  .textarea {
+    width: 95%;
+    height: 50%;
+    padding: 0%;
+    margin: 0%;
+  } */
   
+  /* section the calendar timeblocks go in */
+
