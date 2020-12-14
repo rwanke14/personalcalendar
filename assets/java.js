@@ -21,30 +21,46 @@ $(document).ready(function () {
 
     var inputBlocks = document.getElementById("inputBlcks");
     var currentDay = document.getElementById("currentDay");
-    var hoursinDay = ["5AM", "6AM", "7AM", "8AM", "9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM", "6PM", "7PM", "8PM", "9PM", "10PM", "11PM", "12AM", "1AM", "2AM", "3AM", "4AM"]
+    var hoursinDay = ["5AM", "6AM", "7AM", "8AM", "9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM", "6PM", "7PM", "8PM", "9PM", "10PM", "11PM"]
 
 
-    function createBlocks(nom) {
+    var calTable = $("<table>");
+    //$(calTable).attr("class", "description time-block");
 
-       
+    var trEl = $("<tr>")
+    //$(trEl).attr("class", "row");
 
-        var calTable = $("<table>");
+    var tdElTime = $("<div>")
+    //$(tdElTime).attr("class", "hour");
+
+    var tdElInput = $("<textarea>");
+    //$(tdElInput).attr("class", "textarea");
+
+    var tdElBtn = $("<button>");
+    //$(tdElBtn).attr("class", "saveBtn");
+
+    console.log(calTable)
+
+   
+
+    function createBlocks() {
+
+        calTable = $("<table>");
         $(calTable).attr("class", "description time-block");
 
         for (var i = 0; i < hoursinDay.length; i++) {
-           
 
-            var trEl = $("<tr>").html(hoursinDay[i]);
+            trEl = $("<tr>")
+            tdElTime = $("<div>")
+            $(tdElTime).text(hoursinDay[i]);
+            tdElBtn = $("<button>");
+            tdElInput = $("<textarea>");
+
             $(trEl).attr("class", "row");
-            
-            var tdElTime = $("<div>")
-            $(tdElTime).attr("class", "hour");
-
-            var tdElInput = $("<input>");
-            $(tdElInput).attr("class", "textarea");
-
-            var tdElBtn = $("<button>");
-            $(tdElBtn).attr("class", "saveBtn");
+            $(tdElTime).attr("class", "hour col-md-2");
+            // var tdElInput = $("<input>");
+            $(tdElInput).attr("class", "textarea description col-md-6");
+            $(tdElBtn).attr("class", "saveBtn col-md-2");
 
 
             $(calTable).appendTo(inputBlocks);
@@ -58,6 +74,8 @@ $(document).ready(function () {
 
         }
 
+
+
         console.log(hoursinDay)
 
     }
@@ -67,10 +85,12 @@ $(document).ready(function () {
     createBlocks()
 
 
-    function addTimeDate () {
+    function addTimeDate() {
 
-        var date = moment().format("MM DD YYYY")
+        var date = moment().format("MMMM DD, YYYY")
         console.log(date);
+
+
 
         $(currentDay).text(date);
 
@@ -81,28 +101,66 @@ $(document).ready(function () {
 
     function timeChange() {
 
-        if (s) {
+        //set hour
+        var hour = moment().hour(Number);
+        console.log(hour);
+        
+        
+        for (var i = 0; i < hoursinDay.length; i++) {
 
-            //present time
-            //change color - red (call class)
+          
+            
+            
+         
 
-        } if (s) {
+            if () {
 
-            // past time
-            //change color - gray (present class)
+                $(trEl).attr("class", "future");
+                //present time
+                //change color - red (call class)
 
-        } else {
+            } if () {
 
-            //future time
-            //change color - green (future class)
+                $(trEl).attr("class", "present");
+                // present time
+                //change color - gray (present class)
+
+            } else {
+
+                $(trEl).attr("class", "past");
+                //future time
+                //change color - green (future class)
+            }
+
+            
         }
+       
 
 
     }
 
 
     timeChange()
+
+    var events = [];
+
+   $(tdElBtn).on("click", function () {
+
     
+        
+
+        //tdElInput.value = localStorage.getItem ("input")
+        //localStorage.setItem("input", tdElInput.value);
+        
+        //at this point you are taking what was inserted in the input box and upon clicking btn it stores it in local storage.
+        
+        
+
+        console.log(eventText)
+        //set local storage save portion here. when clicked the event is stored in local storage.
+
+       
+   });
     // -- add on click event for save button and add in details for local storage of the event.
 
 });
