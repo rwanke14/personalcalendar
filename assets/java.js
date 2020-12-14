@@ -21,7 +21,7 @@ $(document).ready(function () {
 
     var inputBlocks = document.getElementById("inputBlcks");
     var currentDay = document.getElementById("currentDay");
-    var hoursinDay = ["5AM", "6AM", "7AM", "8AM", "9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM", "6PM", "7PM", "8PM", "9PM", "10PM", "11PM"]
+    var hoursinDay = ["5AM", "6AM", "7AM", "8AM", "9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM", "6PM", "7PM", "8PM", "9PM", "10PM", "11PM", "12AM", "1AM", "2AM"]
 
 
     var calTable = $("<table>");
@@ -71,7 +71,34 @@ $(document).ready(function () {
             $(tdElInput).appendTo(trEl);
             $(tdElBtn).appendTo(trEl);
 
+            //timeChange()
 
+
+            var currentTime = moment().format("H");
+            console.log(currentTime)
+    
+            //var timeDiff = hoursinDay[i].id
+    
+            //trEl = hoursinDay[i].id
+    
+                if (i < currentTime) {
+    
+                    $(trEl).attr("class", "row past");
+                    //present time
+                    //change color - red (call class)
+    
+                } if (i > currentTime) {
+    
+                    $(trEl).attr("class", "row future");
+                    // present time
+                    //change color - gray (present class)
+    
+                } else if ( i === currentTime) {
+    
+                    $(trEl).attr("class", "row present");
+                    //future time
+                    //change color - green (future class)
+                }
         }
 
 
@@ -99,50 +126,45 @@ $(document).ready(function () {
 
     addTimeDate()
 
-    function timeChange() {
+    // function timeChange() {
 
-        //set hour
-        var hour = moment().hour(Number);
-        console.log(hour);
+    //     //set hour
+    //    //var hour = moment.duration().asHours();
+    //     //console.log(hour);
+
+    //     var currentTime = moment().format("H");
+    //     console.log(currentTime)
+
+    //     var timeDiff = hoursinDay[i].id
+
+    //     //trEl = hoursinDay[i].id
+
+    //         if (timeDiff < currentTime) {
+
+    //             $(trEl).attr("class", "row future");
+    //             //present time
+    //             //change color - red (call class)
+
+    //         } if (timeDiff > currentTime) {
+
+    //             $(trEl).attr("class", "row present");
+    //             // present time
+    //             //change color - gray (present class)
+
+    //         } else {
+
+    //             $(trEl).attr("class", "row past");
+    //             //future time
+    //             //change color - green (future class)
+    //         }
+
         
-        
-        for (var i = 0; i < hoursinDay.length; i++) {
-
-          
-            
-            
-         
-
-            if () {
-
-                $(trEl).attr("class", "future");
-                //present time
-                //change color - red (call class)
-
-            } if () {
-
-                $(trEl).attr("class", "present");
-                // present time
-                //change color - gray (present class)
-
-            } else {
-
-                $(trEl).attr("class", "past");
-                //future time
-                //change color - green (future class)
-            }
-
-            
-        }
-       
+    // }
 
 
-    }
+    //timeChange()
 
-
-    timeChange()
-
-    var events = [];
+ 
 
    $(tdElBtn).on("click", function () {
 
