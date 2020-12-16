@@ -9,6 +9,12 @@ When time is in the past it will be gray, when time is in the present it will be
 
 Tweaked some CSS to personalize as well. Added a background and adjusted text size to make it easier to read.
 
+Feedback, brainstorming, and general support to study group:
+        1. Young Ji Kim - https://github.com/youjmi
+        2. Amir Ashtiany - https://github.com/Alexfit4
+        3. Johnnie Simpson - https://github.com/balokdecoy
+        4. Frankie Rosado - https://github.com/Franciscorosado09
+
 Photo of website:
 
 ![Top Page of Calendar](./assets/photos/Plannertop.png)
@@ -20,8 +26,3 @@ Validation:
 ![CSS Validation](./assets/CSSvalidate.png)
 ![Javascript Validation](./assets/photos/Javascriptvalidation.png)
 
-Feedback, brainstorming, and general support to study group:
-        1. Young Ji Kim - https://github.com/youjmi
-        2. Amir Ashtiany - https://github.com/Alexfit4
-        3. Johnnie Simpson - https://github.com/balokdecoy
-        4. Frankie Rosado - https://github.com/Franciscorosado09
