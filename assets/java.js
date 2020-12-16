@@ -25,7 +25,7 @@ $(document).ready(function () {
     var currentMin = moment().format("m");
 
 
-    //object for times to call later with for loop and localstorage.
+    //object for times to call later with for loop and localstorage. Working with Johnnie and Amir I was able to find a better way to approach my array.
     var hoursinDay = [
         {
             time: 8,
@@ -188,6 +188,9 @@ $(document).ready(function () {
     $(".saveBtn").on("click", function (event) {
         event.preventDefault();
         console.log("cliked");
+
+        //Working with Johnnie and Amir I was able to get a better grasp and idea on how to begin to set up my localstorage and then complete it on my own based on how it fit with my script.
+        
         var eventInput = $(event.target).prev("textarea").val();
         var eventTime = $(event.target).val();
 
