@@ -18,14 +18,14 @@
 $(document).ready(function () {
 
 
-
+    //Declaring variables for the html.
     var inputBlocks = document.getElementById("inputBlcks");
     var currentDay = document.getElementById("currentDay");
     var currentTime = moment().format("LT");
-    var currentMin = moment().format("m")
+    var currentMin = moment().format("m");
 
 
-
+    //object for times to call later with for loop and localstorage.
     var hoursinDay = [
         {
             time: 8,
@@ -71,28 +71,19 @@ $(document).ready(function () {
             time: 18,
             show: "6PM",
         },
-        {
-            time: 19,
-            show: "7PM",
-        },
-        {
-            time: 20,
-            show: "8PM",
-        },
-
-    ]
+    ];
 
 
     var calTable = $("<table>");
-    var trEl = $("<tr>")
-    var tdElTime = $("<div>")
+    var trEl = $("<tr>");
+    var tdElTime = $("<div>");
     var tdElInput = $("<textarea>");
     var tdElBtn = $("<button>");
-    
 
-    console.log(calTable)
 
-   
+    console.log(calTable);
+
+    //function creates the blocks and html through a forloop and adding an if/else to change the color of the app when it's past/present/future.
 
     function createBlocks() {
 
@@ -101,8 +92,8 @@ $(document).ready(function () {
 
         for (var i = 0; i < hoursinDay.length; i++) {
 
-            trEl = $("<tr>")
-            tdElTime = $("<div>")
+            trEl = $("<tr>");
+            tdElTime = $("<div>");
             $(tdElTime).text(hoursinDay[i].show);
             tdElBtn = $("<button>");
             tdElBtn.val(hoursinDay[i].time);
@@ -110,72 +101,64 @@ $(document).ready(function () {
 
             $(trEl).attr("class", "row");
             $(tdElTime).attr("class", "hour col-md-2");
-            // var tdElInput = $("<input>");
-            $(tdElInput).attr("class", "description col-md-6");
+
+            $(tdElInput).attr("class", "description col-md-8");
             $(tdElBtn).attr("class", "saveBtn col-md-2");
             $(tdElInput).attr("id", hoursinDay[i].time);
 
-            //var eventInput = localStorage.getItem(hoursinDay[i].show)
-            //tdElInput.val(eventInput)
+
 
             $(calTable).appendTo(inputBlocks);
             $(trEl).appendTo(calTable);
-            
+
             $(tdElTime).appendTo(trEl);
 
             $(tdElInput).appendTo(trEl);
             $(tdElBtn).appendTo(trEl);
 
-            // var eventInput = localStorage.getItem(hoursinDay[i].show)
-            //tdElInput.val(eventInput)
-            //console.log(eventInput)
-            //timeChange()
 
-            //hoursinDay[i], "H a"
-            //var currentTime = moment().format("LT")
-            //var currentTime = moment().format("LT");
-            //console.log(currentTime)
-            var plannerHour = moment().hour()
-            
-            //var timeDiff = hoursinDay[i].id
-            console.log(plannerHour, hoursinDay[i].time)
-    
-            //trEl = hoursinDay[i].id
-    
-                if (plannerHour > hoursinDay[i].time) {
+            var plannerHour = moment().hour();
 
-                    $(tdElInput).addClass("past");
-                    //present time
-                    //change color - gray past
-    
-                } else if (plannerHour < hoursinDay[i].time) {
-    
-                    $(tdElInput).addClass("future");
-                    // present time
-                    //change color - green future
-    
-                } else {
-    
-                    $(tdElInput).addClass("present");
-                    //future time
-                    //change color - red - present
-                }
+
+            console.log(plannerHour, hoursinDay[i].time);
+
+
+
+            if (plannerHour > hoursinDay[i].time) {
+
+                $(tdElInput).addClass("past");
+                //present time
+                //change color - gray past
+
+            } else if (plannerHour < hoursinDay[i].time) {
+
+                $(tdElInput).addClass("future");
+                // present time
+                //change color - green future
+
+            } else {
+
+                $(tdElInput).addClass("present");
+                //future time
+                //change color - red - present
+            }
         }
 
 
 
-        console.log(hoursinDay)
+        console.log(hoursinDay);
 
     }
 
 
 
-    createBlocks()
+    createBlocks();
 
+    //adding date to page.
 
     function addTimeDate() {
 
-        var date = moment().format("MMMM DD, YYYY")
+        var date = moment().format("MMMM DD, YYYY");
         console.log(date);
 
 
@@ -185,33 +168,39 @@ $(document).ready(function () {
     }
 
 
-    addTimeDate()
+    addTimeDate();
 
-    //$('input[type="button"][value="My task"]') = localStorage.getItem("8")
-//console.log($('input[type="button"][value="My task"]') )
+    //Setting up the save button to store event details added and then store them so they remain after refresh. 
 
-    $("#8").val(localStorage.getItem("8"))
+    $("#8").val(localStorage.getItem("8"));
+    $("#9").val(localStorage.getItem("9"));
+    $("#10").val(localStorage.getItem("10"));
+    $("#11").val(localStorage.getItem("11"));
+    $("#12").val(localStorage.getItem("12"));
+    $("#13").val(localStorage.getItem("13"));
+    $("#14").val(localStorage.getItem("14"));
+    $("#15").val(localStorage.getItem("15"));
+    $("#16").val(localStorage.getItem("16"));
+    $("#17").val(localStorage.getItem("17"));
+    $("#18").val(localStorage.getItem("18"));
 
-   $(".saveBtn").on("click", function (event) {
-       event.preventDefault()
-        console.log("cliked")
+
+    $(".saveBtn").on("click", function (event) {
+        event.preventDefault();
+        console.log("cliked");
         var eventInput = $(event.target).prev("textarea").val();
         var eventTime = $(event.target).val();
-        //var eventTime = localStorage.getItem(hoursinDay[i].show)
-        //tdElInput.value = localStorage.getItem ("input")
-        //localStorage.setItem("input", tdElInput.value);
-        
-        //at this point you are taking what was inserted in the input box and upon clicking btn it stores it in local storage.
-        
+
+
         localStorage.setItem(eventTime, eventInput);
 
-        console.log(eventTime)
-        console.log(localStorage)
+        console.log(eventTime);
+        console.log(localStorage);
 
-        console.log(eventInput)
-        //set local storage save portion here. when clicked the event is stored in local storage.
+        console.log(eventInput);
 
-   });
-    // -- add on click event for save button and add in details for local storage of the event.
+
+    });
+
 
 });
